@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!--根据BCP47文档规范, 声明语言为大陆简中普通话-->
+<html lang="zh-cmn-Hans-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Huffman编码压缩及解压缩</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar" style="background-color: #e3f2fd;">
+            <div class="container">
+                <a class="navbar-brand text-info" href="/">Huffman编码压缩及解压缩</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <form onsubmit="return false;">
+                <div class="form-group">
+                    <label for="words">请输入一句话:</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="words">
+                        <div class="input-group-append">
+                            <button type="button" class="btn btn-primary" id="compress_words" disabled>压缩这句话</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" accept=".txt" id="file">
+                            <label class="custom-file-label" for="file" id="file_label">
+                                上传txt文件
+                            </label>
+                        </div>
+                        <div class="input-group-append">
+                            <button type="button" class="btn btn-primary" id="compress_file" disabled>压缩txt文件</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="text-center">
+                        <div class="btn-group" role="group" aria-label="other-buttons">
+                            <button type="button" class="btn btn-outline-primary" id="decompress" disabled>解压缩</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="result">运行结果:</label>
+                    <textarea class="form-control" id="result" readonly></textarea>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer class="bg-light">
+        <div class="container">
+            <nav class="nav">
+                <a class="nav-link text-secondary">
+                    © 2019 周淦清 计科11704 201703407
+                </a>
+            </nav>
+        </div>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script type="text/javascript" src="./js/jquery.min.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="./js/popper.min.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="./js/bootstrap.min.js" charset="UTF-8"></script>
+    <!-- Custom JavaScript -->
+    <script type="text/javascript" src="./js/huffman.js" charset="UTF-8"></script>
+</body>
+</html>
