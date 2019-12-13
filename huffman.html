@@ -10,13 +10,13 @@
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./css/style.css">
-    <title>Huffman编码压缩及解压缩</title>
+    <title>Huffman编码及解码</title>
 </head>
 <body>
     <header>
         <nav class="navbar" style="background-color: #e3f2fd;">
             <div class="container">
-                <a class="navbar-brand text-info" href="/">Huffman编码压缩及解压缩</a>
+                <a class="navbar-brand text-info" href="/">Huffman编码及解码</a>
             </div>
         </nav>
     </header>
@@ -29,7 +29,7 @@
                     <div class="input-group">
                         <input type="text" class="form-control" id="words">
                         <div class="input-group-append">
-                            <button type="button" class="btn btn-primary" id="compress_words" disabled>压缩这句话</button>
+                            <button type="button" class="btn btn-primary" id="encode_words" disabled>运行编码</button>
                         </div>
                     </div>
                 </div>
@@ -42,14 +42,14 @@
                             </label>
                         </div>
                         <div class="input-group-append">
-                            <button type="button" class="btn btn-primary" id="compress_file" disabled>压缩txt文件</button>
+                            <button type="button" class="btn btn-primary" id="compress_file" disabled>运行编码</button>
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="text-center">
                         <div class="btn-group" role="group" aria-label="other-buttons">
-                            <button type="button" class="btn btn-outline-primary" id="decompress" disabled>解压缩</button>
+                            <button type="button" class="btn btn-outline-primary" id="decompress" disabled>运行解码</button>
                         </div>
                     </div>
                 </div>
