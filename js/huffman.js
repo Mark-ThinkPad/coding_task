@@ -167,14 +167,10 @@ $(function () {
             return res.join('')
         }
     }
-    // 测试数据
-    // let huffmanCode = new HuffmanCode();
-    // let compress = huffmanCode.encode('我是大白兔欢迎你我是我是力量哈哈');
-    // console.log(compress);
-    // let decompress = huffmanCode.decode('11100100001011100101010010100111001110011011011011011');
-    // console.log(decompress);
 
     // UI操作部分
+    let hc = new HuffmanCode();
+    let hce = ''; // 暂存编码结果
     // 判空函数
     function isEmpty(input_id, button_id) {
         let input = $(input_id).val();
@@ -184,26 +180,6 @@ $(function () {
             $(button_id).attr('disabled', true);
         }
     }
-    // 1. 文件类型校验
-    // 2. 文件内容读取为字符串 FileReader.readAsText()
-    // 3. 字符串进行赫夫曼编码
-    // 4. 编码后的字符串可以被解码
-    let txt = document.getElementById('file');
-    let str = '';
-    txt.onchange = function () {
-        let file = txt.files[0];
-        if ( /\.(txt)$/.test(file.name) ) {
-            let reader = new FileReader();
-            reader.readAsText(file);
-            reader.addEventListener("load", function () {
-                // alert(this.result);
-                str = this.result;
-            });
-        } else {
-            alert('只支持txt文档!');
-            txt.value = '';
-        }
-    };
     // 输入判空
     $('#words').bind('input propertychange', function () {
         isEmpty('#words', '#encode_words');
@@ -213,5 +189,98 @@ $(function () {
         if (e.keyCode === 13) {
             $('#encode_words').click();
         }
+    });
+    // 对输入的字符进行编码
+    $('#encode_words').click(function () {
+        let words = $('#words').val();
+        hce = hc.encode(words);
+        $('#result').html(hce);
+        $('#decode_words').attr('disabled', false);
+    });
+    // 解码按钮
+    $('#decode_words').click(function () {
+        let hcd = hc.decode(hce);
+        $('#result').html(hcd);
+    });
+
+    // 1. 文件类型校验
+    // 2. 文件内容读取为字符串 FileReader.readAsText()
+    // 3. 字符串进行赫夫曼编码
+    // 4. 编码后的字符串可以被解码
+
+    // 生成并下载文件
+    function createAndDownloadFile(fileName, content) {
+        let aTag = document.createElement('a');
+        let blob = new Blob([content]);
+        aTag.download = fileName;
+        aTag.href = URL.createObjectURL(blob);
+        aTag.click();
+        URL.revokeObjectURL(blob);
+    }
+
+    // 输入的进行编码的文件
+    // 自动显示文件名+判空+读取文件内容
+    let str_e = '';
+    let label_e = $('#file_label_e').html();
+    $('#file_e').change(function () {
+        try {
+            let file = this.files[0];
+            $('#file_label_e').html(file.name);
+            if ( !/\.(txt)$/.test(file.name)) {
+                alert('只支持txt文档!');
+                // 清空文件
+                $('#file_e').val('');
+                $('#file_label_e').html(label_e);
+                $('#encode_file').attr('disabled', true);
+            } else {
+                let reader = new FileReader();
+                reader.readAsText(file);
+                reader.addEventListener("load", function () {
+                    str_e = this.result;
+                });
+                $('#encode_file').attr('disabled', false);
+            }
+
+        } catch (e) {
+            $('#file_label_e').html(label_e);
+            $('#encode_file').attr('disabled', true);
+        }
+    });
+    $('#encode_file').click(function () {
+        hce = hc.encode(str_e);
+        $('#result').html(hce);
+        createAndDownloadFile('encode.hc', hce);
+    });
+
+    // 输入的进行解码的文件
+    let str_d = '';
+    let label_d = $('#file_label_d').html();
+    $('#file_d').change(function () {
+        try {
+            let file = this.files[0];
+            $('#file_label_d').html(file.name);
+            if ( !/\.(hc)$/.test(file.name)) {
+                alert('只支持.hc文档!');
+                // 清空文件
+                $('#file_d').val('');
+                $('#file_label_d').html(label_e);
+                $('#decode_file').attr('disabled', true);
+            } else {
+                let reader = new FileReader();
+                reader.readAsText(file);
+                reader.addEventListener("load", function () {
+                    str_d = this.result;
+                });
+                $('#decode_file').attr('disabled', false);
+            }
+
+        } catch (e) {
+            $('#file_label_d').html(label_d);
+            $('#decode_file').attr('disabled', true);
+        }
+    });
+    $('#decode_file').click(function () {
+        let hcd = hc.decode(str_d);
+        $('#result').html(hcd);
     });
 });

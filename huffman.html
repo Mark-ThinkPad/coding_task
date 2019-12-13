@@ -30,26 +30,33 @@
                         <input type="text" class="form-control" id="words">
                         <div class="input-group-append">
                             <button type="button" class="btn btn-primary" id="encode_words" disabled>运行编码</button>
+                            <button type="button" class="btn btn-primary" id="decode_words" disabled>运行解码</button>
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="input-group">
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" accept=".txt" id="file">
-                            <label class="custom-file-label" for="file" id="file_label">
-                                上传txt文件
+                            <input type="file" class="custom-file-input" accept=".txt" id="file_e">
+                            <label class="custom-file-label" for="file_e" id="file_label_e">
+                                上传.txt文件
                             </label>
                         </div>
                         <div class="input-group-append">
-                            <button type="button" class="btn btn-primary" id="compress_file" disabled>运行编码</button>
+                            <button type="button" class="btn btn-primary" id="encode_file" disabled>运行编码</button>
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="text-center">
-                        <div class="btn-group" role="group" aria-label="other-buttons">
-                            <button type="button" class="btn btn-outline-primary" id="decompress" disabled>运行解码</button>
+                    <div class="input-group">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" accept=".hc" id="file_d">
+                            <label class="custom-file-label" for="file_d" id="file_label_d">
+                                上传刚才生成的encode.hc文件
+                            </label>
+                        </div>
+                        <div class="input-group-append">
+                            <button type="button" class="btn btn-primary" id="decode_file" disabled>运行解码</button>
                         </div>
                     </div>
                 </div>
