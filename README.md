@@ -7,7 +7,7 @@
 
 ## 运行方式
 
-- Huffman编码压缩及解压缩
+- Huffman编码及解码
 
 ```
 用浏览器打开 `huffman.html` (推荐使用chromium内核的浏览器确保兼容性)
