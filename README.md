@@ -17,3 +17,9 @@
 ```
 用浏览器打开 `pcm.html` (推荐使用chromium内核的浏览器确保兼容性)
 ```
+
+生成的音频文件信息截图:
+
+![pcm0](https://zhouganqing.top/media/images/2019/Snipaste_2019-12-21_17-05-10.png)
+
+![pcm1](https://zhouganqing.top/media/images/2019/Snipaste_2019-12-21_17-05-39.png)

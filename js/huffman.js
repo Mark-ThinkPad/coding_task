@@ -211,7 +211,7 @@ $(function () {
     // 生成并下载文件
     function createAndDownloadFile(fileName, content) {
         let aTag = document.createElement('a');
-        let blob = new Blob([content]);
+        let blob = new Blob([content], {type: 'text/hc, charset=UTF-8'});
         aTag.download = fileName;
         aTag.href = URL.createObjectURL(blob);
         aTag.click();
