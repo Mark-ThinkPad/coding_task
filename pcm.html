@@ -23,7 +23,19 @@
 
 <main>
     <div class="container">
-
+        <div class="alert alert-primary" role="alert">
+            <P>先点击"开始录音", 录音完成后点击"结束录音"</P>
+            <p>嵌入的js脚本默认以16位采样进行PCM编码</p>
+            <p>由于浏览器不能直接播放PCM文件, 所以在点击"播放录音"时, 会将PCM编码后的数据转为WAV格式并播放</p>
+            <p>同时自动下载此WAV文件</p>
+        </div>
+        <div class="text-center">
+            <div class="btn-group" role="group" aria-label="Web PCM">
+                <button type="button" class="btn btn-outline-primary" id="start">开始录音</button>
+                <button type="button" class="btn btn-outline-primary" id="end">结束录音</button>
+                <button type="button" class="btn btn-outline-primary" id="play">播放录音</button>
+            </div>
+        </div>
     </div>
 </main>
 
@@ -40,8 +52,6 @@
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script type="text/javascript" src="./js/jquery.min.js" charset="UTF-8"></script>
-<script type="text/javascript" src="./js/popper.min.js" charset="UTF-8"></script>
-<script type="text/javascript" src="./js/bootstrap.min.js" charset="UTF-8"></script>
 <!-- Custom JavaScript -->
 <script type="text/javascript" src="./js/pcm.js" charset="UTF-8"></script>
 </body>
